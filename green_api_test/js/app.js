@@ -1,7 +1,6 @@
 // Ждём полной загрузки DOM
 document.addEventListener('DOMContentLoaded', function() {
     
-    // Получаем элементы со страницы
     const idInstanceInput = document.getElementById('idInstance');
     const apiTokenInput = document.getElementById('apiTokenInstance');
     const responseArea = document.getElementById('response');
@@ -11,21 +10,17 @@ document.addEventListener('DOMContentLoaded', function() {
     const btnSendMessage = document.getElementById('sendMessage');
     const btnSendFile = document.getElementById('sendFileByUrl');
     
-    // Проверяем, все ли элементы найдены
     if (!btnGetSettings || !btnGetState || !btnSendMessage || !btnSendFile) {
         console.error('Ошибка: не все кнопки найдены в HTML');
         return;
     }
     
-    // Базовый URL GREEN-API
-    const BASE_URL = 'https://api.green-api.com';
+    const BASE_URL = 'https://cors-anywhere.herokuapp.com/https://api.green-api.com';
     
-    // Функция для вывода ответа в textarea
     function showResponse(data) {
         responseArea.value = JSON.stringify(data, null, 2);
     }
     
-    // Функция для выполнения запросов к API
     async function callApi(method, body = null) {
         const idInstance = idInstanceInput.value.trim();
         const apiToken = apiTokenInput.value.trim();
@@ -56,7 +51,6 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     }
     
-    // Обработчики
     btnGetSettings.addEventListener('click', () => callApi('getSettings'));
     btnGetState.addEventListener('click', () => callApi('getStateInstance'));
     
