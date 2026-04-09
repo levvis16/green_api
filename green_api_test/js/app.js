@@ -24,12 +24,13 @@ document.addEventListener('DOMContentLoaded', function() {
     async function callApi(method, body = null) {
         const idInstance = idInstanceInput.value.trim();
         const apiToken = apiTokenInput.value.trim();
-        
+    
         if (!idInstance || !apiToken) {
             showResponse({ error: 'Заполните idInstance и ApiTokenInstance' });
             return;
         }
         
+        const BASE_URL = 'https://cors-anywhere.herokuapp.com/https://api.green-api.com';
         const url = `${BASE_URL}/waInstance${idInstance}/${method}/${apiToken}`;
         
         const options = {
@@ -47,7 +48,7 @@ document.addEventListener('DOMContentLoaded', function() {
             const data = await response.json();
             showResponse(data);
         } catch (error) {
-            showResponse({ error: 'Ошибка сети или CORS', details: error.message });
+            showResponse({ error: 'Ошибка сети', details: error.message });
         }
     }
     
