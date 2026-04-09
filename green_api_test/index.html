@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GREEN-API</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <div class="app">
+        <div class="sidebar">
+            <h1>GREEN-API</h1>
+            
+            <div class="auth-block">
+                <input type="text" id="idInstance" placeholder="idInstance">
+                <input type="text" id="apiTokenInstance" placeholder="ApiTokenInstance">
+            </div>
+            
+            <div class="buttons-block">
+                <button id="getSettings">getSettings</button>
+                <button id="getStateInstance">getStateInstance</button>
+                <button id="sendMessage">sendMessage</button>
+                <button id="sendFileByUrl">sendFileByUrl</button>
+            </div>
+        </div>
+        
+        <div class="response-area">
+            <textarea id="response" readonly placeholder="Ответ от API..."></textarea>
+        </div>
+    </div>
+    
+    <script src="js/app.js"></script>
+</body>
+</html>
